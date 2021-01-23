@@ -26,7 +26,7 @@ A flash rapid-API will give you brief data on covid-19 for the desired foreign c
 ### @italycoviddataBot the telegram-bot [ᴛʀʏ ɪᴛ ᴏᴜᴛ](https://t.me/italycoviddataBot)
 Very intuitive commands allow you to use the above mentioned modules directly on telegram. Have a look at @italycoviddataBot.
 ![telegram_screen](https://github.com/MCilento93/italy_coviddata/blob/master/images/telegram%20screenshot.png)
-</br>New feature: custom-keyboards ⌨️ are arrived! 
+</br>New feature: custom-keyboards ⌨️ are arrived!
 
 ## License
-This repository is licensed under [MIT](LICENSE) (c) 2019 GitHub, Inc.
+This repository is licensed under [GNU](LICENSE) (c) 2019 GitHub, Inc.
