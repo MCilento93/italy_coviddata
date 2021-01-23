@@ -1,0 +1,13 @@
+# file specifico
+bot_settings.json
+users_dump.json
+config.ini
+
+# tutte cartelle con il nome
+**/.ipynb_checkpoints
+**/__pycache__
+**/.spyproject
+**/graphics
+
+# tutti i file di log
+*.log
