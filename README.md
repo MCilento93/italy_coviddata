@@ -39,4 +39,4 @@ Very intuitive commands allow you to use the above mentioned modules directly on
 </br>New feature: custom-keyboards ⌨️ are arrived!
 
 ### License
-This repository is licensed under [MIT](LICENSE) (c) 2019 GitHub, Inc.
+This repository is licensed under [GNU](LICENSE) (c) 2019 GitHub, Inc.
