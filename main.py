@@ -230,7 +230,7 @@ def colore_regioni(update,context):
     for key,value in dict_only_emoji.items():
         reply_with_emoji+=f"{value} {key}\n"
     reply_with_emoji+="""
-[Restrizioni regionali](http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638?gclid=CjwKCAiAwrf-BRA9EiwAUWwKXicC1bzopYynHP9pvRxHUza7Ar4dte9hWHi55Uj4xfuAHanOCf7a1BoCTggQAvD_BwE)
+[FAQ del Governo](http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638?gclid=CjwKCAiAwrf-BRA9EiwAUWwKXicC1bzopYynHP9pvRxHUza7Ar4dte9hWHi55Uj4xfuAHanOCf7a1BoCTggQAvD_BwE)
 """
     update.message.reply_text(reply_with_emoji,parse_mode='Markdown',disable_web_page_preview=True)
     user_str=UsersDatabase.get_user_str(update.message.chat.id)
