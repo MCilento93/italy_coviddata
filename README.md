@@ -31,12 +31,22 @@ This module searches on google-news feeds about the desired city. Will it manage
 ### Module /coviddata/world_coviddata
 A flash rapid-API will give you brief data on covid-19 for the desired foreign coutry.
 
+### Module /coviddata/italy_coviddata_vaccines
+Parser of vaccines data from open repository of [italia/covid19-opendata-vaccini](https://github.com/italia/covid19-opendata-vaccini)
+
 ### @italycoviddataBot the telegram-bot [ᴛʀʏ ɪᴛ ᴏᴜᴛ](https://t.me/italycoviddataBot)
 Very intuitive commands allow you to use the above mentioned modules directly on telegram. Have a look at @italycoviddataBot.
 <p align="center">
   <img src="https://github.com/MCilento93/italy_coviddata/blob/master/images/telegram%20screenshot.png" width="450px">
 </p>
 </br>New feature: custom-keyboards ⌨️ are arrived!
+
+### Acknowledgments
+* **[Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile](https://github.com/pcm-dpc/COVID-19)** for the repository with open data on Covid-19
+* **[Governo Italiano](http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638?gclid=CjwKCAiAwrf-BRA9EiwAUWwKXicC1bzopYynHP9pvRxHUza7Ar4dte9hWHi55Uj4xfuAHanOCf7a1BoCTggQAvD_BwE)** for the feature "ColoreRegioni"
+* **[italia/covid19-opendata-vaccini](https://github.com/italia/covid19-opendata-vaccini)** for maintaining the repository with open data on vaccines for italian regions and provinces
+* **[RapidAPI/Gramzivi](https://rapidapi.com/Gramzivi/api/covid-19-data)** for the freemium and powerful API for world data
+* **[Iceloof/GoogleNews](https://github.com/Iceloof/GoogleNews)** for the scraper of GoogleNews, used for city data
 
 ### License
 This repository is licensed under [GNU](LICENSE) (c) 2019 GitHub, Inc.

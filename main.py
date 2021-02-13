@@ -21,6 +21,7 @@ import coviddata.italy_coviddata_curvefit as italy_coviddata_curvefit
 import coviddata.italy_coviddata_regions as italy_coviddata_regions
 import coviddata.italy_coviddata_provinces as italy_coviddata_provinces
 import coviddata.italy_coviddata_cities as italy_coviddata_cities
+import coviddata.italy_coviddata_vaccines as italy_coviddata_vaccines
 from _telegram.users_database import UsersDatabase
 import _telegram.keyboards as keyboards
 
@@ -96,10 +97,14 @@ def __daily_bot_update(CallbackContext):
     load_df_italy()
     load_df_regions()
     load_df_provinces()
+    load_df_vaccines()
     # Notification
     nuovi_positivi_italy=int(df_italy['nuovi_positivi'].values[-1])
     morti_giornalieri=int(df_italy['nuovi_deceduti'].values[-1])
-    notification_message=f"🦠COVID-19🧪 aggiornamento dati.\n {nuovi_positivi_italy} nuovi positivi e {morti_giornalieri} morti giornalieri in Italia  🇮🇹\nSempre al tuo servizio 😎"
+    tot_dosi_somministrate=df_vax['dosi_somministrate'].sum()
+    tot_popolazione=df_vax['tot_popolazione'].sum()
+    percentuale_somministrazione_su_tot_popolazione=tot_dosi_somministrate/tot_popolazione
+    notification_message=f"🦠COVID-19🧪 aggiornamento dati\n {nuovi_positivi_italy} nuovi positivi e {morti_giornalieri} morti giornalieri in Italia  🇮🇹.\n Circa il {round(percentuale_somministrazione_su_tot_popolazione,4)*100}% della popolazione è attualmente vaccinata.\nSempre al tuo servizio 😎"
     send_message_all_users(notification_message)
     logger.debug('Daily update completed')
 
@@ -115,6 +120,10 @@ def load_df_regions():
 def load_df_provinces():
     global df_provinces
     df_provinces=italy_coviddata_provinces.load_full_repository(day_start=day_start)
+
+def load_df_vaccines():
+    global df_vax
+    df_vax=italy_coviddata_vaccines.load_full_repository()
 
 # Handlers
 
@@ -137,8 +146,8 @@ I miei comandi sono estremamente semplici ed intuitivi :D
 /start - Messaggio di Benvenuto
 /help - Puoi schiacciare me in caso di difficoltà
 /world - Provo a cercare i dati sulle altre nazioni (nome inglese del paese)
-/ita - Dati nazionali aggiornati
-/reg - Seguito da nome della regione per i dati regionali
+/ita - Dati nazionali aggiornati (e dati sui vaccini)
+/reg - Seguito da nome della regione per i dati regionali (e dati sui vaccini)
 /prov - Seguito da nome della provincia per i dati provinciali
 /city - Seguito da nome della città desiderata per un tentativo di ricerca dati
 
@@ -174,6 +183,7 @@ def ita(update,context):
     fig_bytes=fig2bytes(italy_coviddata_curvefit.plot_resume(df_italy))
     context.bot.send_photo(chat_id=update.effective_chat.id, photo=fig_bytes)
     update.message.reply_text(italy_coviddata_curvefit.get_resume(df_italy),parse_mode='Markdown')
+    update.message.reply_text(italy_coviddata_vaccines.get_italy_resume(df_vax),parse_mode='Markdown')
     user_str=UsersDatabase.get_user_str(update.message.chat.id)
     logger.info(user_str+' asked for italy-data')
 
@@ -188,6 +198,7 @@ def reg(update,context):
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=fig_bytes)
         resume=rd1.get_resume()
         update.message.reply_text(resume,parse_mode='Markdown')
+        update.message.reply_text(italy_coviddata_vaccines.get_region_resume(df_vax, reg_name),parse_mode='Markdown')
         logger.info(user_str +' asked for '+reg_name+' data')
     else:
         reg_names_array=np.unique(df_regions.denominazione_regione.values)
@@ -379,6 +390,7 @@ if __name__=='__main__':
     load_df_italy()
     load_df_regions()
     load_df_provinces()
+    load_df_vaccines()
 
     # Routine
     bot = telegram.Bot(token=config['BOT_SETTINGS']['TOKEN'])
