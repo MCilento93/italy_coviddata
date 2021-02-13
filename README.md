@@ -2,7 +2,7 @@
 This repository is based on python scripts for compute and promptly analyse COVID cases data.
 
 ### Installation
-For now you can only clone the repository and enjoy its core function.
+For now, you can only clone the repository and enjoy its features.
 ```
 $ git clone https://github.com/MCilento93/italy_coviddata.git
 ```
@@ -39,14 +39,13 @@ Very intuitive commands allow you to use the above mentioned modules directly on
 <p align="center">
   <img src="https://github.com/MCilento93/italy_coviddata/blob/master/images/telegram%20screenshot.png" width="450px">
 </p>
-</br>New feature: custom-keyboards ⌨️ are arrived!
 
 ### Acknowledgments
-* **[Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile](https://github.com/pcm-dpc/COVID-19)** for the repository with open data on Covid-19
-* **[Governo Italiano](http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638?gclid=CjwKCAiAwrf-BRA9EiwAUWwKXicC1bzopYynHP9pvRxHUza7Ar4dte9hWHi55Uj4xfuAHanOCf7a1BoCTggQAvD_BwE)** for the feature "ColoreRegioni"
+* **[Dipartimento della Protezione Civile](https://github.com/pcm-dpc/COVID-19)** for the repository with open data on Covid19
+* **[Governo Italiano website](http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638?gclid=CjwKCAiAwrf-BRA9EiwAUWwKXicC1bzopYynHP9pvRxHUza7Ar4dte9hWHi55Uj4xfuAHanOCf7a1BoCTggQAvD_BwE)** for the content on the current color-status of italian regions
 * **[italia/covid19-opendata-vaccini](https://github.com/italia/covid19-opendata-vaccini)** for maintaining the repository with open data on vaccines for italian regions and provinces
-* **[RapidAPI/Gramzivi](https://rapidapi.com/Gramzivi/api/covid-19-data)** for the freemium and powerful API for world data
-* **[Iceloof/GoogleNews](https://github.com/Iceloof/GoogleNews)** for the scraper of GoogleNews, used for city data
+* **[RapidAPI/Gramzivi](https://rapidapi.com/Gramzivi/api/covid-19-data)** for the freemium and powerful API for world Covid19-data
+* **[Iceloof](https://github.com/Iceloof/GoogleNews)** for the GoogleNews scraper, used for city data
 
 ### License
 This repository is licensed under [GNU](LICENSE) (c) 2019 GitHub, Inc.

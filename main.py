@@ -104,7 +104,11 @@ def __daily_bot_update(CallbackContext):
     tot_dosi_somministrate=df_vax['dosi_somministrate'].sum()
     tot_popolazione=df_vax['tot_popolazione'].sum()
     percentuale_somministrazione_su_tot_popolazione=tot_dosi_somministrate/tot_popolazione
-    notification_message=f"🦠COVID-19🧪 aggiornamento dati\n {nuovi_positivi_italy} nuovi positivi e {morti_giornalieri} morti giornalieri in Italia  🇮🇹.\n Circa il {round(percentuale_somministrazione_su_tot_popolazione,4)*100}% della popolazione è attualmente vaccinata.\nSempre al tuo servizio 😎"
+    notification_message=f"""
+🦠COVID-19🧪 aggiornamento dati
+{nuovi_positivi_italy} nuovi positivi e {morti_giornalieri} morti giornalieri in Italia  🇮🇹
+Circa il {round(percentuale_somministrazione_su_tot_popolazione,4)*100}% della popolazione è vaccinata 💉
+    """
     send_message_all_users(notification_message)
     logger.debug('Daily update completed')
 
