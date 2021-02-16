@@ -107,7 +107,7 @@ def __daily_bot_update(CallbackContext):
     notification_message=f"""
 🦠COVID-19🧪 aggiornamento dati
 {nuovi_positivi_italy} nuovi positivi e {morti_giornalieri} morti giornalieri in Italia  🇮🇹
-Circa il {round(percentuale_vaccinati,4)*100}% della popolazione è vaccinata 💉
+Circa il {round(percentuale_vaccinati*100,2)}% della popolazione è vaccinata 💉
     """
     send_message_all_users(notification_message)
     logger.debug('Daily update completed')
