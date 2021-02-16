@@ -103,11 +103,11 @@ def __daily_bot_update(CallbackContext):
     morti_giornalieri=int(df_italy['nuovi_deceduti'].values[-1])
     tot_dosi_somministrate=df_vax['dosi_somministrate'].sum()
     tot_popolazione=df_vax['tot_popolazione'].sum()
-    percentuale_somministrazione_su_tot_popolazione=tot_dosi_somministrate/tot_popolazione
+    percentuale_vaccinati=tot_dosi_somministrate/tot_popolazione/2
     notification_message=f"""
 🦠COVID-19🧪 aggiornamento dati
 {nuovi_positivi_italy} nuovi positivi e {morti_giornalieri} morti giornalieri in Italia  🇮🇹
-Circa il {round(percentuale_somministrazione_su_tot_popolazione,4)*100}% della popolazione è vaccinata 💉
+Circa il {round(percentuale_vaccinati,4)*100}% della popolazione è vaccinata 💉
     """
     send_message_all_users(notification_message)
     logger.debug('Daily update completed')
