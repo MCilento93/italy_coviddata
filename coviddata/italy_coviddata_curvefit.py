@@ -146,7 +146,7 @@ def get_resume(df,print_=False):
     resume=f"""
 🇮🇹 *Situazione ITALIA al {time_str}* 🇮🇹
 Attualmente in Italia ci sono {int(df['totale_positivi'].values[-1])} _positivi accertati_, di cui {int(df['nuovi_positivi'].values[-1])} _nuovi casi_.
-Oggi sono stati effettuati {int(df['nuovi_tamponi'].values[-1])} _nuovi tamponi_, di cui il  {df['positivi_su_tamponi'].values[-1]*100}% sono risultati positivi.
+Oggi sono stati effettuati {int(df['nuovi_tamponi'].values[-1])} _nuovi tamponi_, di cui il  {round(df['positivi_su_tamponi'].values[-1]*100,2)}% sono risultati positivi.
 
 _Dati giornalieri_
 🦠 Nuovi casi {int(df['nuovi_positivi'].values[-1])}
@@ -264,13 +264,13 @@ class CovidCurveFit():
 ### MAIN
 
 if __name__=='__main__':
-    
+
     # Test-settings
     plt.ion()
-    
+
     # Globals
     SAVE_ALL=False
-    
+
     # Inputs
     patient_type='nuovi_positivi'
         # options: 'ricoverati_con_sintomi', 'terapia_intensiva',
@@ -290,7 +290,7 @@ if __name__=='__main__':
     get_resume(df,print_=True)
     plot_dataframe(df,label=patient_type,save=SAVE_ALL)
     plot_resume(df,save=SAVE_ALL)
-    
+
     # Costruction of class for analysis
     cf1=CovidCurveFit(label=patient_type,dataframe=df,day_start=day_start,day_end=day_end)
     cf1.calculate_fitting_parameters(func_name)
