@@ -69,7 +69,7 @@ def get_italy_resume(df_vax):
     percentuale_vaccinati=tot_dosi_somministrate/tot_popolazione/2
     resume=f"""
 *Distribuzione vaccini in Italia 🇮🇹 al {date_last_update}*
-Complessivamente sono stati distribuiti {int(tot_dosi_somministrate)} vaccini (circa il {round(percentuale_vaccinati*100,2)}% della popolazione è attualmente vaccinata).
+Complessivamente sono stati distribuiti {int(tot_dosi_somministrate)} vaccini 💉.
     """
     return resume
 
